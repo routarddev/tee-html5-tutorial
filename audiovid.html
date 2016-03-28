@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica - PAC1</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Description" content="HTML5 Multimèdia: Àudio i Vídeo">
+  <meta name="Keywords" lang="ca" content="html5,multimèdia,àudio,vídeo,edició,electrònica,guia,català,humanitats">
+  <meta name="Author" content="Sandra Marcos Bonet">
+  <meta name="Copyright" content="© Sandra Marcos Bonet">
+  <meta name="DC.Title" content="HTML5 Multimèdia: Àudio i Vídeo">
+  <meta name="DC.Creator" content="Marcos Bonet, Sandra">
+  <meta name="DC.Subject" content="html5,multimèdia,àudio i vídeo,uoc,tècniques d'edició electrònica,guia,català,humanitats">
+  <meta name="DC.Description" content="Guia sobre noves utilitats de multimèdia del llenguatge HTML5: Àudio i Vídeo">
+  <meta name="DC.Publisher" content="Universitat Oberta de Catalunya">
+  <meta name="DC.Date" content="2015.11.29">
+  <meta name="DC.Type" content="Text.Article">
+  <meta name="DC.Format" content="Text/html">
+  <meta name="DC.Language" content="ca">
+  <meta name="DC.Rights" content="Sandra Marcos Bonet. Universitat Oberta de Catalunya. Tècniques d'Edició Electrònica">
+
+  <link rel="stylesheet" href="css/pac3_common.css" type="text/css">
+</head>
+
+<body>
+  <header>
+    <img class="uoc_logo" src="images/20anys-ca.png" alt="UOC logo" title="UOC logo">
+    <div class="titles">
+      <h1>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica</h1>
+      <h2>PAC3: Creaci&oacute; d'un lloc web</h2>
+    </div>
+    <img class="html5_logo" src="images/HTML5_logo.png" alt="HTML5 logo" title="HTML5 logo">
+  </header>
+
+  <nav>
+    <p><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/index.html">&Iacute;ndex de PAC's</a></p>
+    <p><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC3/index.html">P&agrave;gina principal</a></p>
+  </nav>
+
+  <section>
+    <h1>Gr&agrave;fics i Multim&egrave;dia amb HTML5</h1>
+    <h1>Multim&egrave;dia: &Agrave;udio i V&iacute;deo</h1>
+    <br/><br/>
+    
+    <h3>&Iacute;ndex</h3>
+    <article>
+    <ol>
+      <li><a href="#news">Novetats</a></li>
+      <li><a href="#info">M&eacute;s informaci&oacute;</a></li>
+    </ol>
+    </article>
+    <br/><br/>
+    
+    <h3><a name="news" class="no_link">Novetats</a></h3>
+    <article>
+      <p>HTML5 ens ofereix suport multim&egrave;dia mitjan&ccedil;ant les etiquetes <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code> i <code>&lt;source&gt;</code>, que ens permeten incrustar diferents elements multim&egrave;dia dins del document HTML.</p>
+      <p>El funcionament &eacute;s molt similar per als dos elements, tal i com veurem seguidament.</p>
+      <p>Per afegir un element d'&agrave;udio nom&eacute;s caldr&agrave; afegir un codi molt el seg&uuml;ent:</p>
+      <br/>
+      <code class="code_block">
+      &lt;audio&gt;src="http://www.mfiles.co.uk/mp3-downloads/autumn.mp3" controls&gt;
+       &lt;p&gt;El teu navegador no suporta l'element "audio".&lt;/p&gt;
+      &lt;/audio&gt;
+      </code>
+      <br/>
+      <p>Aquest codi resulta en una barra de resproducci&oacute; que podem controlar gr&agrave;cies a l'atribut <code>controls</code>:</p>
+      <br/>
+      <div class="center_element">
+        <audio src="http://www.mfiles.co.uk/mp3-downloads/autumn.mp3" controls>
+          <p>El teu navegador no suporta l'element <code>audio</code>.</p>
+        </audio>
+      </div>
+      <br/><br/>
+      <p>Els par&agrave;metres que haurem de tenir en compte s&oacute;n els seg&uuml;ents:</p>
+        <ul>
+          <li><code>src</code>: hi indicarem el fitxer que volem reprodu&iuml;r, ja sigui des d'una carpeta local o b&eacute; des d'una URL.</li>
+          <li><code>controls</code>: mostra els controls est&agrave;ndar d'HTML5 per controlar l'&agrave;udio a la p&agrave;gina web.</li>
+          <li><code>autoplay</code>: per reproduir autom&agrave;ticament el fitxer d'&agrave;udio un cop es carrega la p&agrave;gina.</li>
+          <li><code>loop</code>: per repetir autom&agrave;ticament i repetidament l'&agrave;udio.</li>
+        </ul>
+      <br/><br/>
+      <p>Per una altra banda, podem especificar diferents formats de fitxers i c&oacute;decs (tan de v&iacute;deo com d'&agrave;udio) amb l'etiqueta <code>source</code>, oferint m&eacute;s possibilitats de compatibilitat amb el navegador de l'usuari.
+        Per exemple, podem fer servir el seg&uuml;ent codi:
+      </p>
+      <br/>
+      <code class="code_block">
+            &lt;video controls&gt;
+              &lt;source src="foo.ogg" type="video/ogg"&gt;
+              &lt;source src="foo.mp4" type="video/mp4"&gt;
+              &lt;p&gt;El teu navegador no suporta l'element "video".&lt;/p&gt;
+            &lt;/video&gt;
+      </code>
+    <br/><br/>
+      <p>Aix&iacute; mateix, es poden afegir events i controls mitjan&ccedil;ant codi JavaScript. Aquest &eacute;s un recurs avan&ccedil;at que es pot consultar, per exemple, als enlla&ccedil;os que es trobaran a l'apartat de <i><a href="#info">M&eacute;s informaci&oacute;</a></i>.<br/><br/>
+       Pel que fa a la integraci&oacute; d'elements de v&iacute;deo, funciona de manera similar. Per exemple, el seg&uuml;ent codi:</p>
+      <br/>
+      <code class="code_block">
+  &lt;video width="350" controls poster="http://aprende-web.net/objetos/video1.gif"&gt;
+    &lt;source src="http://aprende-web.net/objetos/video1.mp4" type="video/mp4"&gt;
+    &lt;source src="http://aprende-web.net/objetos/video1.ogv" type="video/ogg"&gt;
+    &lt;source src="http://aprende-web.net/objetos/video1.webm" type="video/webm"&gt;
+    &lt;p>El teu navegador no suporta l'element "video" d'HTML5.&lt;/p&gt;
+  &lt;/video&gt;
+      </code>
+      <br/><br/>
+      <p>Ens mostrar&agrave; aquest v&iacute;deo:</p>
+      <br/>
+      <div class="center_element">
+        <video width="350" controls poster="http://aprende-web.net/objetos/video1.gif" >
+          <source src="http://aprende-web.net/objetos/video1.mp4" type="video/mp4">
+          <source src="http://aprende-web.net/objetos/video1.ogv" type="video/ogg">
+          <source src="http://aprende-web.net/objetos/video1.webm" type="video/webm">
+          <p>El teu navegador no suporta l'element "video" d'HTML5.</p>
+        </video>
+      </div>
+      <br/><br/>
+    </article>
+    <br/><br/>
+
+    <h3><a name="info" class="no_link">M&eacute;s informaci&oacute;:</a></h3>
+    <article>
+        <p><a href="http://aprende-web.net/NT/html5/html5_4.php" target="_blank" name="manual">Novedades en HTML5: Multim&egrave;dia</a>, Miguel &Aacute;ngel Guti&eacute;rrez Beired</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video" target="_blank" name="mdn_multimedia">Mozilla Developer: Using Audio and Video</a></p>
+        <p><a href="http://www.um.es/docencia/barzana/DAWEB/Desarrollo-de-aplicaciones-web-teoria-html5-multimedia.html" target="_blank">DAWeb: Multimedia con HTML5</a></p>
+        <p><a href="http://diveintohtml5.info/video.html" target="_blank" name="dive_html5">Dive into HTML5</a></p>
+        <p><a href="http://www.html5rocks.com/es/tutorials/video/basics/" target="_blank" name="html5_rocks">HTML5 Rocks tutorial: Video Basics</a></p>
+        <p><a href="http://www.encoding.com/html5/" target="_blank" name="encoding">Encoding: HTML5 and video</a></p>
+    </article>
+    <br/><br/>
+
+    <i id="updated">Darrera actualitzaci&oacute;: 08/12/2015</i>
+    <br/><br/>
+
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/index.html">
+ -->
+    <a class="no_link" href="index.html">
+      <img class="left_arrow" src="images/icons/left15.png" alt="Main Page" title="P&agrave;gina principal">
+    </a>
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/webrtc.html">
+ -->
+    <a class="no_link" href="webrtc.html">
+       <img class="right_arrow" src="images/icons/right11.png" alt="Multimedia - Web RTC" title="Multim&egrave;dia - Web RTC">
+    </a>
+
+    <br/><br/>
+
+  </section>
+  <br/><br/>
+
+  <aside id="indexs">
+    <br>
+    <div id="index_pac3">
+      <h3>&Iacute;ndex de continguts</h3>
+      <ul>
+        <li><a href="index.html">Introducci&oacute;</a></li>
+        <li><a href="audiovid.html">Multim&egrave;dia: Audio i V&iacute;deo</a></li>
+        <li><a href="webrtc.html">Multim&egrave;dia: WebRTC</a></li>
+        <li><a href="canvas.html">Gr&agrave;fics: Canvas</a></li>
+        <li><a href="svg.html">Gr&agrave;fics: SVG</a></li>
+        <li><a href="plusinfo.html">M&eacute;s informaci&oacute;</a></li>
+      </ul>
+    </div>
+    <br/><br/>
+    <div id="index_pacs_tee">
+    	<h3>TEE - &Iacute;ndex de PACs</h3>
+      <ul>
+        <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_1/marcos_bonet_PAC1.html" target="_blank">PAC 1</a></li>
+        <li><a class="no_link" href="#">PAC 2</a>
+          <ul>
+            <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_2/marcos_bonet_ANALISI_PAC2a.htm" target="_blank">An&agrave;lisi</a></li>
+            <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_2/marcos_bonet_GUIA_PAC2b.htm" target="_blank">Guia</a></li>
+          </ul>
+        </li>
+        <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/index.html" target="_blank">PAC 3</a></li>
+      </ul>
+    </div>
+    <br/>
+  </aside>
+
+  <footer>
+  <h1>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica, UOC 2015 - 2016</h1>
+  <h2>Sandra Marcos Bonet, Llicenciatura en Humanitats<br/><br/>
+    <a href="mailto:smarcosb@uoc.edu">smarcosb@uoc.edu</a></h2>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica - PAC1</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Description" content="HTML5 Gràfics: Canvas">
+  <meta name="Keywords" lang="ca" content="html5,gràfics,canvas,uoc,edició,electrònica,guia,català,humanitats">
+  <meta name="Author" content="Sandra Marcos Bonet">
+  <meta name="Copyright" content="© Sandra Marcos Bonet">
+  <meta name="DC.Title" content="HTML5 Gràfics: Canvas">
+  <meta name="DC.Creator" content="Marcos Bonet, Sandra">
+  <meta name="DC.Subject" content="html5,gràfics,canvas,uoc,tècniques d'edició electrònica,guia,català,humanitats">
+  <meta name="DC.Description" content="Guia sobre noves eines gràfiques del llenguatge HTML5: Canvas">
+  <meta name="DC.Publisher" content="Universitat Oberta de Catalunya">
+  <meta name="DC.Date" content="2015.11.29">
+  <meta name="DC.Type" content="Text.Article">
+  <meta name="DC.Format" content="Text/html">
+  <meta name="DC.Language" content="ca">
+  <meta name="DC.Rights" content="Sandra Marcos Bonet. Universitat Oberta de Catalunya. Tècniques d'Edició Electrònica">
+  <link rel="stylesheet" href="css/pac3_common.css" type="text/css">
+</head>
+
+<!--
+<body onload="draw();">
+  -->
+  <body>
+  
+  <header>
+    <img class="uoc_logo" src="images/20anys-ca.png" alt="UOC logo" title="UOC logo">
+    <div class="titles">
+      <h1>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica</h1>
+      <h2>PAC3: Creaci&oacute; d'un lloc web</h2>
+    </div>
+    <img class="html5_logo" src="images/HTML5_logo.png" alt="HTML5 logo" title="HTML5 logo">
+  </header>
+
+  <nav>
+    <p><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/index.html">&Iacute;ndex de PAC's</a></p>
+    <p><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC3/index.html">P&agrave;gina principal</a></p>
+  </nav>
+
+  <section>
+    <h1>Gr&agrave;fics i Multim&egrave;dia amb HTML5</h1>
+    <h1>Gr&agrave;fics: Canvas</h1>
+    <br/><br/>
+    
+    <h3>&Iacute;ndex</h3>
+    <article>
+    <ol>
+      <li><a href="#intro">Introducci&oacute; i exemples</a></li>
+      <li><a href="#info">M&eacute;s informaci&oacute;</a></li>
+    </ol>
+    </article>
+    <br/><br/>
+    
+    <h3><a name="intro" class="no_link">Introducci&oacute; i exemples</a></h3>
+    <article> 
+      <p>L'element <code>canvas</code> es fa servir per dibuixar gr&agrave;fics en 2D a la p&agrave;gina web dins d'una &agrave;rea rectangular, per&ograve; nom&eacute;s fa de contenidor per a gr&agrave;fics. Primer es defineix l'element <code>canvas</code> i posteriorment es dibuixa mitjan&ccedil;ant codi <a href="http://librosweb.es/libro/javascript/" target="_blank">JavaScript</a>.
+      El codi JavaScript que es fa servir per dibuixar i modificar elements canvas, permet dibuixar <i>shapes</i> (formes), aplicar estils i colors, fer transformacions i animacions, etc.</p>
+      <br/>
+      <p>Per defecte, es dibuixar&agrave; un rectangle sense marges de tamany 350px x 150px d'amplada i al&ccedil;ada, que es pot modificar amb els atributs <code>width</code> i <code>height</code>. Per tal que es vegi clarament el marc buit, podem afegir estil, per exemple destacar un marc o b&eacute; un color de fons amb l'atribut <code>style</code>, ja sigui directament o amb un fitxer CSS. Per fer servir canvas tan sols hem d'escriure un codi com el de l'exemple seg&uuml;ent:</p>
+      <br/>
+      <code class="code_block"> 
+      &lt;canvas width="100" height="100" style="border:3px solid blue;"&gt;
+      &lt;/canvas&gt;
+     </code>
+     <br/>
+     <p>Aquest codi ens mostrar&agrave; el seg&uuml;ent resultat:</p>
+     <br/>
+      <div class="center_element">
+        <code><canvas width="100" height="100" style="border:3px solid blue;"></canvas></code>
+      </div>
+     <br/>
+     <p>Per dibuixar haurem de d'escriure un script fent servir la llibreria <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" target="_blank"><code>CanvasRenderingContext2D</code></a> i afegir-lo al codi html de la p&agrave;gina:</p>
+     <br/>
+      <code class="code_block">
+  &lt;canvas id="canvas" width="100" height="100" style="border:1px solid #d3d3d3;"&gt;
+  El teu navegador no suporta canvas.&lt;/canvas&gt;
+
+  &lt;script&gt;
+    var canvas = document.getElementById("canvas");
+    if (canvas.getContext) {
+      var ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "rgb(200,0,0)";
+      ctx.fillRect (10, 10, 55, 50);
+
+      ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+      ctx.fillRect (30, 30, 55, 50);
+    }
+  &lt;/script&gt; 
+      </code>
+      <br/>
+      <p>En primer lloc, hem creat un element canvas de tamany 100px x 100px, amb marc blau i amb identificador &uacute;nic (id) 'canvas', que ens facilitar&agrave; la posterior cerca i modificaci&oacute; de l'objecte. Seguidament, hem creat un <code>script</code>, &eacute;s a dir, un tros de codi, en el qual trobem l'objecte canvas mitjan&ccedil;ant i el context amb les funcions <code>getElementById(id)</code> i <code>canvas.getContext</code>. Despr&eacute;s dibuixem dos rectangles tot indicant-ne la posici&oacute;: <code>fillRect(x, y, width, height)</code>, i els donem un estil: <code>fillStyle(color, gradient, pattern)</code>. El resultat &eacute;s el seg&uuml;ent:</p>
+      <br/>
+     <div class="center_element"><canvas id="canvas" width="100" height="100" style="border:3px solid blue;"></canvas></div>
+
+  <script>
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 55, 50);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (30, 30, 55, 50);
+      }
+  </script>
+  <br/>
+  <p>Per una altra banda, amb una mica de coneixement de programaci&oacute; en llenguatge JavaScript i de les funcions disponibles a la llibreria <code>CanvasRenderingContext2D</code> o altres API's disponibles, es poden fer animacions i dibuixos m&eacute;s complexos. Per exemple, amb el codi que veurem a continuaci&oacute;:</p>
+  <br/>
+  <code class="code_block">
+ &lt;canvas id="solarSystemExample" width="300" height="300"&gt; &lt;/canvas&gt;
+ &lt;script&gt;
+    var sun = new Image();
+    var moon = new Image();
+    var earth = new Image();
+    function init(){
+      sun.src = 'images/Canvas_sun.png';
+      moon.src = 'images/Canvas_moon.png';
+      earth.src = 'images/Canvas_earth.png';
+      window.requestAnimationFrame(draw);
+    }
+
+    function draw() {
+      var ctx = document.getElementById('solarSystemExample').getContext('2d');
+
+      ctx.globalCompositeOperation = 'destination-over';
+      ctx.clearRect(0,0,300,300); // clear canvas
+
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';
+      ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+      ctx.save();
+      ctx.translate(150,150);
+
+      // Earth
+      var time = new Date();
+      ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + 
+                ((2*Math.PI)/60000)*time.getMilliseconds() );
+      ctx.translate(105,0);
+      ctx.fillRect(0,-12,50,24); // Shadow
+      ctx.drawImage(earth,-12,-12);
+
+      // Moon
+      ctx.save();
+      ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + 
+                ((2*Math.PI)/6000)*time.getMilliseconds() );
+      ctx.translate(0,28.5);
+      ctx.drawImage(moon,-3.5,-3.5);
+      ctx.restore();
+
+      ctx.restore();
+      
+      ctx.beginPath();
+      ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit
+      ctx.stroke();
+     
+      ctx.drawImage(sun,0,0,300,300);
+
+      window.requestAnimationFrame(draw);
+    }
+
+    init();
+   &lt;/script&gt;
+  </code>
+  <br>
+  <p>Obtenim el resultat seg&uuml;ent:</p>
+  <br/>
+<div class="center_element"><canvas id="solarSystemExample" width="300" height="300"></canvas></div>
+  <script>
+      var sun = new Image();
+    var moon = new Image();
+    var earth = new Image();
+    function init(){
+      sun.src = 'images/Canvas_sun.png';
+      moon.src = 'images/Canvas_moon.png';
+      earth.src = 'images/Canvas_earth.png';
+      window.requestAnimationFrame(draw);
+    }
+
+    function draw() {
+      var ctx = document.getElementById('solarSystemExample').getContext('2d');
+
+      ctx.globalCompositeOperation = 'destination-over';
+      ctx.clearRect(0,0,300,300); // clear canvas
+
+      ctx.fillStyle = 'rgba(0,0,0,0.4)';
+      ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+      ctx.save();
+      ctx.translate(150,150);
+
+      // Earth
+      var time = new Date();
+      ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+      ctx.translate(105,0);
+      ctx.fillRect(0,-12,50,24); // Shadow
+      ctx.drawImage(earth,-12,-12);
+
+      // Moon
+      ctx.save();
+      ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
+      ctx.translate(0,28.5);
+      ctx.drawImage(moon,-3.5,-3.5);
+      ctx.restore();
+
+      ctx.restore();
+      
+      ctx.beginPath();
+      ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit
+      ctx.stroke();
+     
+      ctx.drawImage(sun,0,0,300,300);
+
+      window.requestAnimationFrame(draw);
+    }
+
+    init();
+  </script>
+  <br/>
+     <p>Si volem dibuixar en 3D podem fer servir la llibreria WebGL (Web Graphics Library), una API JavaScript que permet renderitzar gr&agrave;fics interactius en 2D i 3D i que requereix d'uns coneixements avan&ccedil;ats de programaci&oacute; en JavaScript. Es recomana revisar els recursos de l'apartat <i><a href="#info">M&eacute;s informaci&oacute;</a></i> per tal d'aprofundir en aquests conceptes.</p>
+     <br/>     
+    </article>
+    <br><br>
+
+    <h3><a name="info" class="no_link">M&eacute;s informaci&oacute;:</a></h3>
+    <article>
+      <p><a href="http://www.html5canvastutorials.com/" target="_blank" name="html5canvastutorials">HTML5 Canvas Tutorials</a></p>
+      <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank" name="mdn_tutorial">MDN: Canvas API tutorial</a></p>
+      <p><a href="https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics" target="_blank" name="mdn_js_basics">MDN: JavaScript basics</a></p>
+      <p><a href="http://librosweb.es/libro/javascript/" target="_blank" name="js_intro">Introducci&oacute;n a JavaScript</a></p>
+      <p><a href="http://chimera.labs.oreilly.com/books/1234000000802/ch02.html" target="_blank" name="oreilly_webgl">WebGL: Real-time 3D Rendering</a></p>
+      <p><a href="http://www.html5rocks.com/en/tutorials/webgl/webgl_fundamentals/?redirect_from_locale=es" target="_blank" name="html5rocks_webgl">HTML5 Rocks: WebGL fundamentals</a></p>
+      <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial" target="_blank" name="mdn_webgl">MDN: WebGL Tutorial</a></p>
+    </article>
+    <br/><br/>
+
+    <i id="updated">Darrera actualitzaci&oacute;: 07/12/2015</i>
+    <br/><br/>
+
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/webrtc.html">
+ -->
+    <a class="no_link" href="webrtc.html">
+      <img class="left_arrow" src="images/icons/left15.png" alt="Multimedia - Web RTC" title="Multim&egrave;dia - Web RTC">
+    </a>
+
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/index.html">
+ -->
+    <a class="no_link" href="index.html">
+       <img class="home" src="images/icons/home166.png" alt="Main page" title="P&agrave;gina principal">
+    </a>
+
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/svg.html">
+ -->
+    <a class="no_link" href="svg.html">
+       <img class="right_arrow" src="images/icons/right11.png" alt="Graphics - SVG" title="Gr&agrave;fics - SVG">
+    </a>
+
+    <br><br>
+
+  </section>
+  <br><br>
+
+  <aside id="indexs">
+    <br>
+    <div id="index_pac3">
+      <h3>&Iacute;ndex de continguts</h3>
+      <ul>
+        <li><a href="index.html">Introducci&oacute;</a></li>
+        <li><a href="audiovid.html">Multim&egrave;dia: Audio i V&iacute;deo</a></li>
+        <li><a href="webrtc.html">Multim&egrave;dia: WebRTC</a></li>
+        <li><a href="canvas.html">Gr&agrave;fics: Canvas</a></li>
+        <li><a href="svg.html">Gr&agrave;fics: SVG</a></li>
+        <li><a href="plusinfo.html">M&eacute;s informaci&oacute;</a></li>
+      </ul>
+    </div>
+    <br><br>
+     <div id="index_pacs_tee">
+      <h3>TEE - &Iacute;ndex de PACs</h3>
+      <ul>
+        <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_1/marcos_bonet_PAC1.html" target="_blank">PAC 1</a></li>
+        <li><a class="no_link" href="#">PAC 2</a>
+          <ul>
+            <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_2/marcos_bonet_ANALISI_PAC2a.htm" target="_blank">An&agrave;lisi</a></li>
+            <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_2/marcos_bonet_GUIA_PAC2b.htm" target="_blank">Guia</a></li>
+          </ul>
+        </li>
+        <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/index.html" target="_blank">PAC 3</a></li>
+      </ul>
+    </div>
+    <br>
+  </aside> 
+  
+  <footer>
+  <h1>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica, UOC 2015 - 2016</h1>
+  <h2>Sandra Marcos Bonet, Llicenciatura en Humanitats<br><br>
+    <a href="mailto:smarcosb@uoc.edu">smarcosb@uoc.edu</a></h2>
+  </footer>
+
+</body>
+</html>
