@@ -1,0 +1,188 @@
+* { margin: auto; padding: 0; font-family: arial;  }
+
+/*body: cos de la pàgina */
+body { background-color: #deeebc; }
+
+/*header*/
+header { background-color: #fffafa; }
+header h1 { text-align: center; margin: auto; color: navy; padding: 0.5em; font-size: 1.5em; }
+header h2 { text-align: center; margin: auto; color: #663366; padding: 0.5em; font-size: 1.2em; }
+
+div.titles {
+	display: inline-block;
+	padding-left: 20%;
+}
+
+img.uoc_logo {
+	display: inline-block;
+	padding-top: 0.5em;
+	float: left;
+	z-index: -1;
+	opacity: 0.5;
+}
+
+img.html5_logo {
+	display: inline-block;
+	padding-top: 0.5em;
+	float: right;
+	z-index: -1;
+	opacity: 0.5;
+	width: 6%;
+}
+
+img.uoc_marcaweb {
+	display: inline-block;
+	padding-left: 30%;
+}
+
+img.html5_css_js_logo {
+	display: inline-block;
+	padding-left: 30%;
+	width: 40%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+/* Navigation through main page and root menu */
+nav { background-color: #3CB371; min-height: 2em; }
+nav p { display: inline-block; }
+nav a {
+  color: black;
+  display: inline-block;
+  padding: .5em 1em;
+  text-shadow: 0 1px 0 blue;
+  text-decoration: none;
+}
+nav a:hover {
+  background: rgb(220, 220, 220);
+}
+
+/*main: section:*/
+section { width: 80%; background-color: #deeebc; float: left; }
+section h1 { text-align: center; padding: 0.5em; color: olive; font-size: 1.4em; }
+section h2 { text-align: center; padding: 0.5em; color: grey; font-size: 1.2em; }
+section h3 { text-align: left; padding: 0.3em 1.5em; color: #663366; font-size: 1em;  }
+
+
+/* article*/
+article { margin: 0.5em 1.5em; padding: 0.5em 2em; background-color: white; border: 3px double aqua; font-size: 95%; }
+article p { text-align: justify; text-indent: -1.5em; }
+article ul { padding-left: 3em; }
+
+/* aside: índex de continguts i índex de PAC's */
+aside { 
+	width: 18%;
+	position: fixed;
+	float: right;
+	right: 0;
+	margin: 1em;
+	background-color: #E0FFFF; 
+	border: 2px solid;
+    border-radius: 25px;
+}
+
+aside div {
+	padding-left: 1em;
+}
+
+aside div li {
+	padding-left: 2em;
+	font-family: verdana;
+	font-size: 0.80em;
+}
+
+aside div li li {
+	padding-left: 2em;
+	font-family: verdana;
+	font-size: 1em;
+}
+
+
+
+/* footer*/
+footer { clear: both; background-color: #ccffff; }
+footer h1 { text-align: center; font-size: 1.2em; color: darkred; padding: 0.7em; }
+footer h2 { text-align: center; font-size: 1em; color: navy; padding: 0.4em; }
+footer a { text-decoration: none; color: green; }
+
+/* Navigation links style */
+a:link, a:visited { text-decoration: none; }
+a:hover, a:active { text-decoration: none; color: #9bf5ff; background-color: #543683; }
+
+a.no_link:hover, a.no_link:active {
+	color: inherit; background-color: transparent;
+}
+
+code {
+	font-family: courier;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+code.code_block {
+	font-size: 12px;
+	font-weight: normal;
+	display: block;
+    white-space: pre;
+    border: 2px double black;
+    margin-left: 4em;
+    margin-right: 4em;
+    /* text-indent: -10px;  #review */
+}
+
+div.center_element {
+	text-align: center;
+}
+#jsfiddle { border:1px; width: 90%; }
+
+
+table{border-collapse:collapse;border-spacing:0;width:100%;display:table}
+table,th,td{border:none}
+/*
+.svg_canvas_diff{border:1px solid #ccc}
+.svg_canvas_diff tr{border-bottom:1px solid #ddd}
+.svg_canvas_diff tbody tr:nth-child(even){background-color:#f1f1f1}
+*/
+.svg_canvas_diff{border:1px solid #ccc}
+.svg_canvas_diff tr{border-bottom:1px solid #ddd}
+.svg_canvas_diff tr:nth-child(odd){background-color:#fff}
+.svg_canvas_diff tr:nth-child(even){background-color:#f1f1f1}
+.svg_canvas_diff td,.svg_canvas_diff th{padding:6px 8px;display:table-cell;text-align:left;vertical-align:top}
+.svg_canvas_diff th:first-child,.svg_canvas_diff td:first-child{padding-left:16px}
+
+
+/* Update date */
+#updated { margin-left: 1.5em; }
+
+/* Navigation icons */
+img.left_arrow {
+	width: 100px;
+	height: 100px;
+	margin-left: 50%;
+}
+
+img.home {
+	width: 75px;
+	height: 75px;
+	#margin-left: 50%;
+}
+
+img.right_arrow {
+	width: 100px;
+	height: 100px;
+	#margin-left: 70px;
+}
+
+
+img.home_index {
+	width: 75px;
+	height: 75px;
+	margin-left: 50%;
+}
+
+img.html5_icon {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
