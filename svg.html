@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica - PAC1</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Description" content="HTML5 Gràfics: SVG">
+  <meta name="Keywords" lang="ca" content="html5,svg,gràfics,uoc,edició,electrònica,guia,català,humanitats">
+  <meta name="Author" content="Sandra Marcos Bonet">
+  <meta name="Copyright" content="© Sandra Marcos Bonet">
+  <meta name="DC.Title" content="HTML5 Gràfics: SVG">
+  <meta name="DC.Creator" content="Marcos Bonet, Sandra">
+  <meta name="DC.Subject" content="html5,gràfics,svg,uoc,tècniques d'edició electrònica,guia,català,humanitats">
+  <meta name="DC.Description" content="Guia sobre noves utilitats gràfiques del llenguatge HTML5: Canvas">
+  <meta name="DC.Publisher" content="Universitat Oberta de Catalunya">
+  <meta name="DC.Date" content="2015.11.29">
+  <meta name="DC.Type" content="Text.Article">
+  <meta name="DC.Format" content="Text/html">
+  <meta name="DC.Language" content="ca">
+  <meta name="DC.Rights" content="Sandra Marcos Bonet. Universitat Oberta de Catalunya. Tècniques d'Edició Electrònica">
+  <link rel="stylesheet" href="css/pac3_common.css" type="text/css">
+</head>
+
+<body>
+  
+  <header>
+    <img class="uoc_logo" src="images/20anys-ca.png" alt="UOC logo" title="UOC logo">
+    <div class="titles">
+      <h1>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica</h1>
+      <h2>PAC3: Creaci&oacute; d'un lloc web</h2>
+    </div>
+    <img class="html5_logo" src="images/HTML5_logo.png" alt="HTML5 logo" title="HTML5 logo">
+  </header>
+
+  <nav>
+    <p><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/index.html">&Iacute;ndex de PAC's</a></p>
+    <p><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC3/index.html">P&agrave;gina principal</a></p>
+  </nav>
+
+  <section>
+    <h1>Gr&agrave;fics i Multim&egrave;dia amb HTML5</h1>
+    <h1>Gr&agrave;fics: SVG</h1>
+    <br/><br/>
+    
+    <h3>&Iacute;ndex</h3>
+    <article>
+    <ol>
+      <li><a href="#intro">Introducci&oacute; a SVG</a></li>
+      <li><a href="#diff">Difer&egrave;ncia entre SVG i Canvas</a></li>
+      <li><a href="#info">M&eacute;s informaci&oacute;</a></li>
+    </ol>
+    </article>
+    <br/><br/>
+    
+    <h3><a name="intro" class="no_link">Introducci&oacute; a SVG</a></h3>
+    <article>
+      <p><b>SVG (Scalable Vectors Graphics)</b> &eacute;s una especificaci&oacute; del W3C per descriure gr&agrave;fics vectorials bidimensionals, ja siguin animats o est&agrave;tics, en format <b>XML (eXtensible Markup Language)</b></p>
+      <p>HTML5 incorpora el tag <code>svg</code>, element que permet crear un contenidor per a gr&agrave;fics SVG i que incorpora varis m&egrave;todes per dibuixar camins, caixes, cercles, text i imatges.</p>
+      <p>El seu &uacute;s &eacute;s for&ccedil;a senzill. Per tal de crear el contenidor SVG nom&eacute;s cal escriure un codi com el seg&uuml;ent:</p>
+      <br/>
+      <code class="code_block">
+                            &lt;svg width="100" height="100"&gt; &lt;/svg&gt;
+      </code>
+      <br/>
+      <p>Dins del contenidor, haurem de fer servir les funcions escaients per crear el dibuix que vulguem. Per exemple, les <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes" target="_blank">formes m&eacute;s b&agrave;siques</a>:</p>
+      <ul>
+        <li><code>rect</code>: si volem crear un rectangle.</li>
+        <li><code>circle</code>: si volem crear un cercle.</li>
+        <li><code>ellipse</code>: per dibuixar una el&middot;lipse. </li>
+        <li><code>polygon</code>: si volem crear dibuixos poligonals.</li>
+        <li><code>line</code>: per dibuixar una l&iacute;nia</li>
+        <li><code>path</code>: per dibuixar camins, la forma m&eacute;s gen&egrave;rica, que alhora permeten crear les altres formes, arcs, funcions, etc.</li>
+        <li><code>polyline</code>: per dibuixar grups de l&iacute;nies connectades entre elles.</li>
+      </ul>
+      <br/>
+      <p>Amb un codi com aquest crearem diferents formes:</p>
+      <br/>
+      <code class="code_block">
+  &lt;svg width="100" height="280"&gt;
+    &lt;rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/">
+    &lt;rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+
+    &lt;circle cx="25" cy="75" r="20" stroke="green" stroke-width="4" fill="yellow"/>
+    &lt;ellipse cx="75" cy="75" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5"/>
+
+    &lt;line x1="10" x2="50" y1="110" y2="150" stroke="orange" fill="transparent" stroke-width="5"/>
+    &lt;polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
+      stroke="orange" fill="transparent" stroke-width="5"/>
+
+    &lt;polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
+      stroke="green" fill="transparent" stroke-width="5"/>
+
+    &lt;path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+  &lt;/svg>
+  &lt;svg width="200" height="250">
+    &lt;polygon points="50,5 20,99 95,39 5,39 80,99" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+  &lt;/svg>
+      </code>
+      <br/>
+
+      <div class="center_element">
+        <svg width="100" height="280">
+          <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>
+          <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5" opacity="0.5"/>
+
+          <circle cx="25" cy="75" r="20" stroke="green" stroke-width="4" fill="yellow"/>
+          <ellipse cx="75" cy="75" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5"/>
+
+          <line x1="10" x2="50" y1="110" y2="150" stroke="orange" fill="transparent" stroke-width="5"/>
+          <polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
+            stroke="orange" fill="transparent" stroke-width="5"/>
+
+          <polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
+        stroke="green" fill="transparent" stroke-width="5"/>
+          <path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+        </svg>
+        <svg width="200" height="250">
+          <polygon points="50,5 20,99 95,39 5,39 80,99" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+        </svg>
+      </div>
+     </article>
+    <br/><br/>
+
+    <h3><a name="diff" class="no_link">Difer&egrave;ncia entre SVG i Canvas</a></h3>
+    <article>
+      <p>SVG i Canvas s&oacute; dues novetats que incorpora HTML5 per crear gr&agrave;fics, ara b&eacute; ambdues utilitats tenen for&ccedil;a difer&egrave;ncies que resumim a continuaci&oacute;:</p>
+      <br/>
+      <table class="svg_canvas_diff">
+        <tr>
+        <th style="width:50%">SVG</th>
+        <th style="width:50%">Canvas</th>
+        </tr>
+        <tr>
+        <td>
+          <ul>
+            <li>Llenguatge per descriure gr&agrave;fics en 2D amb XML</li>
+            <li>Cada forma dibuixada es "recorda" i es pot modificar directament despr&eacute;s</li>
+            <li>SVG &eacute;s independent de la resoluci&oacute;</li>
+            <li>Suport per a gestor d'events</li>
+            <li>No &eacute;s adequat per a aplicacions de jocs.</li>
+            <li>Molt adequat per aplicacions amb grans &agrave;rees de renderitzat (Google Maps)</li>
+            <li>Renderitzat lent si &eacute;s complex (qualsevol cosa que faci servir el DOM ser&agrave; lenta)</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Canvas dibuixa al vol, mitjan&ccedil;ant JavaScript</li>
+            <li>Renderitzat p&iacute;xel a p&iacute;xel un sol cop, per modificar la figura, cal crear-la de nou</li>
+            <li>Canvas &eacute;s <i>resolution dependent</i></li>
+            <li>No t&eacute; suport per a gestor d'events</li>
+            <li>Molt adequat per a jocs de gr&agrave;fics intensius</li>
+            <li>Capacitats per renderitzar pobres<br/></li>
+            <li>Es pot desar la imatge resultant com a <code>.png</code> o <code>.jpg</code></li>
+          </ul>
+        </td>
+        </tr>
+      </table>
+      <br/>
+    </article>
+    <br/><br/>
+
+    <h3><a name="info" class="no_link">M&eacute;s informaci&oacute;:</a></h3>
+    <article>
+      <p><a href="http://www.w3schools.com/svg/default.asp" target="_blank" name="w3schools_svg">W3Schools: SVG Tutorial</a></p>
+      <p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" name="mdn_svg">MDN: SVG Tutorial</a></p>
+      <p><a href="http://www.html5rocks.com/en/tutorials/svg/mobile_fundamentals/?redirect_from_locale=es" target="_blank" name="html5rocks_svg">HTML5 Rocks: SVG on your responsive site</a></p>
+      <p><a href="http://edutechwiki.unige.ch/en/Using_SVG_with_HTML5_tutorial" target="_blank" name="edutech_svg">EduTech: HTML5 SVG tutorial</a></p>
+    </article>
+    <br/><br/>
+
+    <i id="updated">Darrera actualitzaci&oacute;: 07/12/2015</i>
+    <br/><br/>
+
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/canvas.html">
+ -->
+    <a class="no_link" href="canvas.html">
+      <img class="left_arrow" src="images/icons/left15.png" alt="Graphics - Canvas" title="Gr&agrave;fics - Canvas">
+    </a>
+
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/index.html">
+ -->
+    <a class="no_link" href="index.html">
+       <img class="home" src="images/icons/home166.png" alt="Main Page" title="P&agrave;gina principal">
+    </a>
+
+<!--     <a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/marcos_bonet_PAC3/plusinfo.html">
+ -->
+    <a class="no_link" href="plusinfo.html">
+       <img class="right_arrow" src="images/icons/right11.png" alt="Plus info" title="M&eacute;s informaci&oacute;">
+    </a>
+
+    <br/><br/>
+
+  </section>
+  <br/><br/>
+
+  <aside id="indexs">
+    <br/>
+    <div id="index_pac3">
+      <h3>&Iacute;ndex de continguts</h3>
+      <ul>
+        <li><a href="index.html">Introducci&oacute;</a></li>
+        <li><a href="audiovid.html">Multim&egrave;dia: Audio i V&iacute;deo</a></li>
+        <li><a href="webrtc.html">Multim&egrave;dia: WebRTC</a></li>
+        <li><a href="canvas.html">Gr&agrave;fics: Canvas</a></li>
+        <li><a href="svg.html">Gr&agrave;fics: SVG</a></li>
+        <li><a href="plusinfo.html">M&eacute;s informaci&oacute;</a></li>
+      </ul>
+    </div>
+    <br/><br/>
+    <div id="index_pacs_tee">
+      <h3>TEE - &Iacute;ndex de PACs</h3>
+      <ul>
+        <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_1/marcos_bonet_PAC1.html" target="_blank">PAC 1</a></li>
+        <li><a class="no_link" href="#">PAC 2</a>
+          <ul>
+            <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_2/marcos_bonet_ANALISI_PAC2a.htm" target="_blank">An&agrave;lisi</a></li>
+            <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_2/marcos_bonet_GUIA_PAC2b.htm" target="_blank">Guia</a></li>
+          </ul>
+        </li>
+        <li><a href="http://cv.uoc.edu/adf/~151_09_007_01_w01/marcos_bonet/PAC_3/index.html" target="_blank">PAC 3</a></li>
+      </ul>
+    </div>
+    <br/>
+  </aside>
+  
+  <footer>
+  <h1>T&egrave;cniques d'Edici&oacute; Electr&ograve;nica, UOC 2015 - 2016</h1>
+  <h2>Sandra Marcos Bonet, Llicenciatura en Humanitats<br><br>
+    <a href="mailto:smarcosb@uoc.edu">smarcosb@uoc.edu</a></h2>
+  </footer>
+
+</body>
+</html>
